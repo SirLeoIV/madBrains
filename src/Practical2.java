@@ -1,8 +1,15 @@
 package src;
 
+import src.support.Debug;
+import src.support.Input;
+
 public class Practical2 {
 
+    public static boolean targetAND = true;
+
     public static void main(String[] args) {
+        Input.specifyLogLevel();
+        Input.specifyTargetFunction();
         runSimulation();
     }
 
@@ -10,8 +17,11 @@ public class Practical2 {
         Network network = new Network();
 
         boolean valid = false;
+        int counter = 0;
         while (!valid) {
-            System.out.println(network);
+            counter++;
+            Debug.log1("Iteration: " + counter);
+            Debug.log2(network);
             valid = true;
             int output = 0;
 
@@ -19,15 +29,17 @@ public class Practical2 {
                 for (int in2 = 0; in2 <= 1 && valid; in2++) {
                     output = network.perform(in1, in2);
                     int expected = expectedResultOR(in1, in2);
-                    System.out.println("INPUT: " + in1 + " : " + in2 + " EXPECTED: " + expected + "; ACTUAL: " + output);
+                    if(targetAND) expected = expectedResultAND(in1, in2);
+                    Debug.log3("INPUT: " + in1 + " : " + in2 + "; EXPECTED: " + expected + "; ACTUAL: " + output);
                     if (expected != output) {
                         valid = false;
                         network.updateWeights(in1, in2, expected, output);
                     }
                 }
             }
-            System.out.println(valid);
+            Debug.log3("Network valid: " + valid);
         }
+        Debug.log1("Finished training. Network status: " + network);
     }
 
     static int expectedResultOR(double in1, double in2) {

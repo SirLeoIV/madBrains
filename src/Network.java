@@ -34,6 +34,6 @@ public class Network {
     
     @Override
     public String toString() {
-        return "Network: (" + "Bias weight: " + ((int) (weightBias * 10)) / 10.0 + " Weight 1: " + ((int) (weight1 * 10)) / 10.0 + " Weight 2: " + ((int) (weight2 * 10)) / 10.0 + ")";
+        return "Network: (" + "Bias weight: " + ((int) (weightBias * 10)) / 10.0 + ", Weight 1: " + ((int) (weight1 * 10)) / 10.0 + ", Weight 2: " + ((int) (weight2 * 10)) / 10.0 + ")";
     }
 }

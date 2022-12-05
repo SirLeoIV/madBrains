@@ -38,6 +38,7 @@ public class Practical2 {
                 }
             }
             Debug.log3("Network valid: " + valid);
+            Debug.log3("----------------");
         }
         Debug.log1("Finished training. Network status: " + network);
     }

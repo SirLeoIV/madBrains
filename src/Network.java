@@ -1,5 +1,8 @@
 package src;
 
+import src.support.Debug;
+import static src.support.Debug.dString;
+
 public class Network {
 
     double biasUnit = 1;
@@ -27,13 +30,28 @@ public class Network {
 
     public void updateWeights(double in1, double in2, double target, double actual) {
         double y = 0.1;
-        weight1 = weight1 + Learning.deltaW(in1, actual, target, y);
-        weight2 = weight2 + Learning.deltaW(in2, actual, target, y);
-        weightBias = weightBias + Learning.deltaW(biasUnit, actual, target, y);
+
+        double deltaWeight1 = Learning.deltaW(in1, actual, target, y);
+        double deltaWeight2 = Learning.deltaW(in2, actual, target, y);
+        double deltaWeightBias = Learning.deltaW(biasUnit, actual, target, y);
+
+        Debug.log4("Learning: ");
+        Debug.log4("Weight 1: " 
+        + " current value = " + dString(weight1) + ", delta w = " + dString(deltaWeight1) + ", new value = " + dString(weight1 + deltaWeight1));
+        
+        Debug.log4("Weight 2: " 
+        + " current value = " + dString(weight2) + ", delta w = " + dString(deltaWeight2) + ", new value = " + dString(weight2 + deltaWeight2));
+        
+        Debug.log4("Bias Weight: " 
+        + " current value = " + dString(weightBias) + ", delta w = " + dString(deltaWeightBias) + ", new value = " + dString(weightBias + deltaWeightBias));
+
+        weight1 = weight1 + deltaWeight1;
+        weight2 = weight2 + deltaWeight2;
+        weightBias = weightBias + deltaWeightBias;
     }
     
     @Override
     public String toString() {
-        return "Network: (" + "Bias weight: " + ((int) (weightBias * 10)) / 10.0 + ", Weight 1: " + ((int) (weight1 * 10)) / 10.0 + ", Weight 2: " + ((int) (weight2 * 10)) / 10.0 + ")";
+        return "Network: (" + "Bias weight: " + dString(weightBias) + ", Weight 1: " + dString(weight1) + ", Weight 2: " + dString(weight2) + ")";
     }
 }

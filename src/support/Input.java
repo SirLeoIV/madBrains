@@ -5,20 +5,20 @@ import src.Practical2;
 public class Input {
     
     public static void specifyLogLevel() {
-        String[] options = {"1", "2", "3", "help", "?"};
+        String[] options = {"1", "2", "3", "4", "help", "?"};
 
-        System.out.println("What log-level do you like to set? (1-3 or \"?\" for explanation)");
+        System.out.println("What log-level do you like to set? (1-4 or \"?\" for explanation)");
 
         switch(ConsoleIN.readInputOptions(options).toLowerCase()) {
             case "1" -> Debug.LOG_LEVEL = 1;
             case "2" -> Debug.LOG_LEVEL = 2;
             case "3" -> Debug.LOG_LEVEL = 3;
-//            case "4" -> Debug.LOG_LEVEL = 4;
+            case "4" -> Debug.LOG_LEVEL = 4;
             case "help", "?" -> {
                 System.out.println("Log-Level 1: See only basic information like the number of iterations nedded to reach the target.");
                 System.out.println("Log-Level 2: See some more information like the status of the networ after each iteration.");
                 System.out.println("Log-Level 3: See even more information like all the inputs and outputs of the test-runs of the network.");
-                // System.out.println("Log-Level 4: See a lot of information about e.g. the creation of new individuals");
+                System.out.println("Log-Level 4: See a lot of information about also the specific learning-functions of each weight.");
                 specifyLogLevel();
             }
         }

@@ -27,4 +27,8 @@ public class Debug {
     public static void debug(Object o) {
         if (DEBUG) System.out.println("# DEBUG: " + o.toString());
     }
+
+    public static String dString(double d) {
+        return "" + ((int) (d * 10)) / 10.0;
+    }
 }

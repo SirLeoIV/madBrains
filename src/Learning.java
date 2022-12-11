@@ -1,8 +1,12 @@
 package src;
 
+import static src.Practical2.round;
+
 public class Learning {
+
+    public static double y = 0.1;
     
-    public static double deltaW(double ai, double ak, double target, double y) {
-        return (int) (y * (target - ak) * ai * 10) / 10.0;
+    public static double deltaW(double ai, double ak, double target) {
+        return round(y * (target - ak) * ai);
     }
 }

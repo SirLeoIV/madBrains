@@ -10,6 +10,7 @@ public class Practical2 {
     public static void main(String[] args) {
         Input.specifyLogLevel();
         Input.specifyTargetFunction();
+        Input.specifyLearningConstant();
         runSimulation();
     }
 
@@ -52,5 +53,9 @@ public class Practical2 {
     static int expectedResultAND(double in1, double in2) {
         if(in1 > 0 && in2 > 0) return 1;
         else return 0;
+    }
+
+    public static double round(double d) {
+        return ((int) Math.round(d * 10)) / 10.0;
     }
 }

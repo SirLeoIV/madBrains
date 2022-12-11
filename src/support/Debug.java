@@ -1,4 +1,7 @@
 package src.support;
+
+import static src.Practical2.round;
+
 public class Debug {
 
     public static int LOG_LEVEL = 0;
@@ -29,6 +32,6 @@ public class Debug {
     }
 
     public static String dString(double d) {
-        return "" + ((int) (d * 10)) / 10.0;
+        return "" + round(d);
     }
 }

@@ -1,5 +1,6 @@
 package src.support;
 
+import src.Learning;
 import src.Practical2;
 
 public class Input {
@@ -34,6 +35,26 @@ public class Input {
         switch(ConsoleIN.readInputOptions(options).toLowerCase()) {
             case "1" -> Practical2.targetAND = true;
             case "2" -> Practical2.targetAND = false;
+        }
+    }
+    
+    
+    public static void specifyLearningConstant() {
+        String[] options = {"1", "0.1", "2", "0.2", "3", "0.3", "4", "0.4", "5", "0.5"};
+
+        System.out.println("How high should the learning constant be?");
+        System.out.print("    1: 0.1");
+        System.out.print("    2: 0.2");
+        System.out.print("    3: 0.3");
+        System.out.print("    4: 0.4");
+        System.out.println("    5: 0.5");
+
+        switch(ConsoleIN.readInputOptions(options).toLowerCase()) {
+            case "1", "0.1" -> Learning.y = 0.1;
+            case "2", "0.2" -> Learning.y = 0.2;
+            case "3", "0.3" -> Learning.y = 0.3;
+            case "4", "0.4" -> Learning.y = 0.4;
+            case "5", "0.5" -> Learning.y = 0.5;
         }
     }
     

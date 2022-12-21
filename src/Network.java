@@ -18,9 +18,9 @@ public class Network {
         weight2 = round(Math.random() * 2 - 1);
         weightBias = round(Math.random() * 2 - 1);
 
-        // weight1 = 0.6;
-        // weight2 = -0.2;
-        // weightBias = -0.3;
+        // weight1 = 0.1;
+        // weight2 = 0.4;
+        // weightBias = 0;
     }
 
     public int perform(double in1, double in2) {

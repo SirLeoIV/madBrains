@@ -8,8 +8,8 @@ public class Practical2 {
     public static Target target;
     public static int customFXA;
     public static int customFXB;
-    public static int customFXX;
-    public static int customFXY;
+    public static int customFXX = 1 ;
+    public static int customFXY = 1 ;
 
     public enum Target {
         AND, OR, _2X1, CUSTOM_FX
@@ -36,38 +36,29 @@ public class Practical2 {
             valid = true;
             int output = 0;
 
-            switch (target) {
-                case AND, OR -> {
-                    for (int in1 = 0; in1 <=1 && valid; in1++) {
-                        for (int in2 = 0; in2 <= 1 && valid; in2++) {
-                            output = network.perform(in1, in2);
-                            int expected = expectedResultAND(in1, in2);
-                            if (target == Target.OR) expected = expectedResultOR(in1, in2);
-
-                            Debug.log3("INPUT: " + in1 + " : " + in2 + "; EXPECTED: " + expected + "; ACTUAL: " + output);
-                            if (expected != output) {
-                                valid = false;
-                                network.updateWeights(in1, in2, expected, output);
-                            }
-                        }
+            for (int in1 = 0; in1 <= customFXX && valid; in1++) {
+                for (int in2 = 0; in2 <= customFXY && valid; in2++) {
+                    output = network.perform(in1, in2);
+                    int expected = 1;
+                    
+                    switch (target) {
+                        case AND -> expected = expectedResultAND(in1, in2);
+                        case OR -> expected = expectedResultOR(in1, in2);
+                        case _2X1 -> expected = expectedResult2X1(in1, in2);
+                        case CUSTOM_FX -> expected = expectedResultCustomFX(in1, in2);
                     }
-                }
-                case _2X1, CUSTOM_FX -> {
-                    for (int in1 = 0; in1 <= customFXX && valid; in1++) {
-                        for (int in2 = 0; in2 <= customFXY && valid; in2++) {
-                            output = network.perform(in1, in2);
-                            int expected = expectedResult2X1(in1, in2);
-                            if (target == Target.CUSTOM_FX) expected = expectedResultCustomFX(in1, in2);
 
-                            Debug.log3("INPUT: x=" + in1 + " : y=" + in2 + "; EXPECTED: " + expected + "; ACTUAL: " + output);
-                            if (expected != output) {
-                                valid = false;
-                                network.updateWeights(in1, in2, expected, output);
-                            }
-                        }
+                    if(target == Target._2X1 || target == Target.CUSTOM_FX) {
+                        Debug.log3("INPUT: x=" + in1 + " : y=" + in2 + "; EXPECTED: " + expected + "; ACTUAL: " + output);
+                    } else Debug.log3("INPUT: " + in1 + " : " + in2 + "; EXPECTED: " + expected + "; ACTUAL: " + output);
+
+                    if (expected != output) {
+                        valid = false;
+                        network.updateWeights(in1, in2, expected, output);
                     }
                 }
             }
+                    
             Debug.log3("Network valid: " + valid);
             Debug.log3("----------------");
         }

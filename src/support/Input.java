@@ -62,7 +62,7 @@ public class Input {
     }
 
     public static void specifyCustomFunctionB() {
-        System.out.println("What value should \"a\" have in the function \"y = " + Practical2.customFXA + "x + b\"? (integer)");
+        System.out.println("What value should \"b\" have in the function \"y = " + Practical2.customFXA + "x + b\"? (integer)");
 
         Integer input = ConsoleIN.readInt();
         if (input == null) specifyCustomFunctionB();

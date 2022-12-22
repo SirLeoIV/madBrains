@@ -31,8 +31,10 @@ public class Practical2 {
             counter++;
             Debug.log1("Iteration: " + counter);
             Debug.log2(network);
-            if(target == Target._2X1) Debug.log4("Test function: \"y = 2x + 1\"");
-            if(target == Target.CUSTOM_FX) Debug.log4("Test function: \"y = " + customFXA + "x + " + customFXB + "\"");
+            if(target == Target.AND) Debug.log3("Test function: AND");
+            else if(target == Target.OR) Debug.log3("Test function: OR");
+            else if(target == Target._2X1) Debug.log3("Test function: \"y = 2x + 1\"");
+            else if(target == Target.CUSTOM_FX) Debug.log3("Test function: \"y = " + customFXA + "x + " + customFXB + "\"");
             valid = true;
             int output = 0;
 

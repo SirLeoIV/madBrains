@@ -24,7 +24,16 @@ public class Network {
     }
 
     public int perform(double in1, double in2) {
-        if ((in1 * weight1 + in2 * weight2 + biasUnit * weightBias) <= 0) return 0;
+        double result = (in1 * weight1 + in2 * weight2 + biasUnit * weightBias);
+        // DEBUGGING THINGS
+        if(true) {
+            int resultLog = 0;
+            if (result > 0) resultLog = 1;
+            Debug.log3("step(0, (" + (int)biasUnit + " * " + round(weightBias) 
+            + " + " + (int)in1 + " * " + round(weight1) 
+            + " + " + (int)in2 + " * "+ round(weight2) + ")) = step(0, " + round(result) + ") 	= " + resultLog);
+        }
+        if (result <= 0) return 0;
         else return 1;
     }
 

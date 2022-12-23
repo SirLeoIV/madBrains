@@ -19,6 +19,14 @@ public class ConsoleIN {
         }
     }
 
+    public static Double readDouble() {
+        try {
+            return Double.parseDouble(readAnyInput());
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
 
     // tries to get input 3 times
     private static String readInput() {

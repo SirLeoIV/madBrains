@@ -54,17 +54,17 @@ public class Input {
     }    
 
     public static void specifyCustomFunctionA() {
-        System.out.println("What value should \"a\" have in the function \"y = ax + b\"? (integer)");
+        System.out.println("What value should \"a\" have in the function \"y = ax + b\"? (double)");
 
-        Integer input = ConsoleIN.readInt();
+        Double input = ConsoleIN.readDouble();
         if (input == null) specifyCustomFunctionA();
         else Practical2.customFXA = input;
     }
 
     public static void specifyCustomFunctionB() {
-        System.out.println("What value should \"b\" have in the function \"y = " + Practical2.customFXA + "x + b\"? (integer)");
+        System.out.println("What value should \"b\" have in the function \"y = " + Practical2.customFXA + "x + b\"? (double)");
 
-        Integer input = ConsoleIN.readInt();
+        Double input = ConsoleIN.readDouble();
         if (input == null) specifyCustomFunctionB();
         else Practical2.customFXB = input;
     }

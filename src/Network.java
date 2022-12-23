@@ -25,8 +25,8 @@ public class Network {
 
     public int perform(double in1, double in2) {
         double result = (in1 * weight1 + in2 * weight2 + biasUnit * weightBias);
-        // DEBUGGING THINGS
-        if(true) {
+        // LOG THINGS -> Activate if needed
+        if(false) {
             int resultLog = 0;
             if (result > 0) resultLog = 1;
             Debug.log3("step(0, (" + (int)biasUnit + " * " + round(weightBias) 

@@ -51,7 +51,7 @@ public class Practical2 {
                     }
 
                     if(target == Target._2X1 || target == Target.CUSTOM_FX) {
-                        // Debug.log3("INPUT: x=" + in1 + " : y=" + in2 + "; EXPECTED: " + expected + "; ACTUAL: " + output);
+                        Debug.log3("INPUT: x=" + in1 + " : y=" + in2 + "; EXPECTED: " + expected + "; ACTUAL: " + output);
                     } else Debug.log3("INPUT: " + in1 + " : " + in2 + "; EXPECTED: " + expected + "; ACTUAL: " + output);
 
                     if (expected != output) {
